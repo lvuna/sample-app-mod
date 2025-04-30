@@ -25,18 +25,10 @@ public final class DMBeanUtils2 {
         String type = opMetadata.getType();
         int impact = opMetadata.getImpact();
 
-        try {
-          MBeanOperationInfo opInfo = new MBeanOperationInfo(name, desc, /* signature */ null, type, impact, /*
+        MBeanOperationInfo opInfo = new MBeanOperationInfo(name, desc, /* signature */ null, type, impact, /*
                                                                                                             * descriptor
                                                                                                             */ null);
-          ops[i++] = opInfo;
-        } catch (IllegalArgumentException e) {
-          logger.log(Level.WARNING, "Impact level specified is not valid. Using impact level UNKNOWN as the value.");
-          MBeanOperationInfo opInfo = new MBeanOperationInfo(name, desc, /* signature */ null, type, MBeanOperationInfo.UNKNOWN, /*
-                                                                                                                                    * descriptor
-                                                                                                                                    */ null);
-          ops[i++] = opInfo;
-        }
+        ops[i++] = opInfo;
       }
     }
 
@@ -60,18 +52,11 @@ public final class DMBeanUtils2 {
         String type = opMetadata.getType();
         int impact = opMetadata.getImpact();
 
-        try {
-          MBeanOperationInfo opInfo2 = new MBeanOperationInfo(name, desc, /* signature */ null, type, impact, /*
-          * descriptor
-          */ null);
-          ops[i++] = opInfo2;
-        } catch (IllegalArgumentException e) {
-          logger.log(Level.WARNING, "Impact level specified is not valid. Using MBeanOperationInfo.UNKNOWN as the value for the impact field.");
-          MBeanOperationInfo opInfo2 = new MBeanOperationInfo(name, desc, /* signature */ null, type, MBeanOperationInfo.UNKNOWN, /*
-          * descriptor
-          */ null);
-          ops[i++] = opInfo2;
-        }
+        MBeanOperationInfo opInfo2 = new MBeanOperationInfo(name, desc, /* signature */ null, type, impact, /*
+        * descriptor
+        */ null);
+
+        ops[i++] = opInfo2;
       }
     }
 
